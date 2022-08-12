@@ -1,2 +1,1 @@
-# Image-Processing
-Matlab Image Processing Onramp 🖼
+# Matlab Image Processing Onramp 🖼
