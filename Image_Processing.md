@@ -132,5 +132,69 @@ Iopened = imopen(I,SE);
 4.Inverting a binary image
 > A binary image is composed of 0s and 1s. In logical terms, 0 = false and 1 = true. The logical NOT operator (~) reverses the logical state (true becomes false and vice versa). You can use the ~ operator to invert a binary image, which changes all 1s to 0s, and vice versa.
 
+----------------------------------
 
+ ### > Classification and Batch Processing
+ 
+ - Counts the number of nonzero entries in an array.
 
+```matlab
+nnz([8 0 7 5 3 0])
+``` 
+---------------
+
+### image datastore
+
+- The imageDatastore function creates an image datastore for all the image files in a folder, but won't load them into memory until they are requested.
+
+```matlab
+ds = imageDatastore("localFolder")
+
+```
+
+- can access the datastore's properties by using a period (.).
+```matlab
+ds.Folders
+```
+
+-  can use the numel function to find the total number of elements in an array.
+ 
+ ```matlab
+ nFiles = numel(dataFilenames)
+ ```
+
+- can import all the images using the readall function.
+```matlab
+img = readall(<value>)
+
+```
+ 
+- The readimage function loads the nth image from an image datastore into the MATLAB workspace.
+ ```matlab
+img = readimage(ds,n);
+ 
+ ```
+ 
+ - function processes and classifies an image using the algorithm you've developed in previous activities.
+ 
+ ```matlab
+ isReceipt = classifyImage(I)
+ ```
+ 
+ - can load each image using readimage and classify it using the local function classifyImage.
+
+- can use the logical array isReceipt as an index to extract the file names of the images classified as receipts.
+
+```matlab
+ds.Files(isReceipt)
+ 
+ ```
+ 
+ --------------------------------------------------------------
+ 
+ - [x] [MATLAB for Image Processing and Computer Vision
+](https://in.mathworks.com/solutions/image-video-processing.html)
+- [x] [Image Processing Toolbox](https://in.mathworks.com/help/images/index.html)
+- [x] [Steve on Image Processing with MATLAB](https://blogs.mathworks.com/steve/)
+- [x] [Image Processing Toolbox — Examples](https://in.mathworks.com/help/images/examples.html?category=index&s_tid=CRUX_gn_ex) 
+ 
